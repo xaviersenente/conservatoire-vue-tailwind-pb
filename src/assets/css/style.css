@@ -22,3 +22,9 @@
     @apply bg-pink;
   }
 }
+
+@layer components {
+  .grille {
+    @apply lg:grid lg:grid-cols-principal lg:justify-center lg:gap-12 px-6;
+  }
+}

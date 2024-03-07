@@ -16,7 +16,11 @@ export default {
       sans: ['Mulish', 'sans-serif'],
       serif: ['Space Mono', 'monospace']
     },
-    extend: {}
+    extend: {
+      gridTemplateColumns: {
+        principal: 'repeat(12, minmax(0, 64px))'
+      }
+    }
   },
   plugins: []
 }
