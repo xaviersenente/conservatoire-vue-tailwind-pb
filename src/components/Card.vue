@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import DuotoneImg from '@/components/DuotoneImg.vue'
+import { formatDate } from '@/helper'
+
 const props = defineProps<{
   id: number
   title: string
@@ -23,7 +25,7 @@ const props = defineProps<{
       <a href="#">{{ title }}</a>
     </h3>
     <div class="z-[2] col-span-1 col-start-2 row-span-2 row-start-2 space-y-4 bg-white p-6">
-      <p>{{ date }}</p>
+      <p>{{ formatDate(date) }}</p>
       <p>{{ excerpt }}</p>
       <a href="#" class="inline-block border-b-2 border-black uppercase">Plus d'info</a>
     </div>
