@@ -4,7 +4,7 @@ import Hero from '@/components/Hero.vue'
 <template>
   <Hero title="Agenda" imgPath="./img/orchestre.webp" imgAlt="Orchestre">
     <template #chapo>
-      <p>
+      <p class="text-xl leading-normal lg:text-3xl">
         Lieu de création artistique, le conservatoire propose régulièrement des actions culturelles
         ouvertes à tous.
       </p>
