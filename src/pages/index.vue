@@ -3,6 +3,7 @@ import Hero from '@/components/Hero.vue'
 import IconTheater from '@/components/icons/IconTheater.vue'
 import IconMusic from '@/components/icons/IconMusic.vue'
 import IconDanse from '@/components/icons/IconDanse.vue'
+import Button from '@/components/Button.vue'
 </script>
 <template>
   <Hero
@@ -45,6 +46,7 @@ import IconDanse from '@/components/icons/IconDanse.vue'
         Découvrez le Conservatoire, ses enseignements, ses équipes dans un nouveau lieu dédié à la
         culture artistique.
       </h2>
+      <Button url="/conservatoire" text="Plus d'info" />
     </header>
 
     <ul class="grid grid-cols-2 gap-12 lg:col-span-4 lg:col-start-9 lg:row-start-2">
