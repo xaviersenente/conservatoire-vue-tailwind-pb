@@ -5,10 +5,13 @@ import IconMusic from '@/components/icons/IconMusic.vue'
 import IconDanse from '@/components/icons/IconDanse.vue'
 import Button from '@/components/Button.vue'
 import Card from '@/components/Card.vue'
-import { events } from '@/data'
+// import { events } from '@/data'
 import Patterns from '@/components/icons/Patterns.vue'
 import { animateLines } from '@/helper'
 import { useHead } from '@unhead/vue'
+import { getNextEvents } from '@/backend'
+
+const events = await getNextEvents()
 useHead({
   title: 'Conservatoire Henri Dutilleux'
 })
@@ -101,7 +104,7 @@ animateLines()
       text="Tous les évènements"
       variant="default"
     />
-    <Card v-for="event in events.slice(0, 3)" v-bind="event" :key="event.id" />
+    <Card v-for="event in events.items.slice(0, 3)" v-bind="event" :key="event.id" />
   </section>
 
   <section

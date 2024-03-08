@@ -4,8 +4,9 @@ import Card from '@/components/Card.vue'
 // import { events } from '@/data'
 import { useHead } from '@unhead/vue'
 import { getNextEvents } from '@/backend'
+
 const events = await getNextEvents()
-console.log(events)
+// console.log(events)
 useHead({
   title: 'Agenda | Conservatoire Henri Dutilleux'
 })
