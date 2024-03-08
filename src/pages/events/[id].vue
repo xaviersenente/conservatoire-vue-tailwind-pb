@@ -3,6 +3,9 @@ import { events } from '@/data'
 import { useRoute } from 'vue-router/auto'
 import DuotoneImg from '@/components/DuotoneImg.vue'
 import { formatDate } from '@/helper'
+import Patterns from '@/components/icons/Patterns.vue'
+import { animateLines } from '@/helper'
+animateLines()
 
 const route = useRoute('/events/[[id]]')
 const event = events.find((event) => event.id === Number(route.params.id))
@@ -35,6 +38,11 @@ const event = events.find((event) => event.id === Number(route.params.id))
       {{ event?.excerpt }}
     </p>
     <div class="my-12 space-y-3 px-6 lg:mx-auto lg:max-w-2xl" v-html="event?.description"></div>
+    <div
+      class="absolute inset-0 z-[-1] flex items-center justify-end overflow-hidden stroke-pink stroke-[24px] opacity-40"
+    >
+      <Patterns class="-ml-60 -mr-[5vw] lg:ml-auto" />
+    </div>
   </div>
   <div v-else>
     <h1>Pas d'événement correspondant</h1>

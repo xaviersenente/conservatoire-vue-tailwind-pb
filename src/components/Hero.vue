@@ -27,5 +27,6 @@ defineProps<{
       :imgAlt="imgAlt"
       classPicture="!absolute inset-0 object-cover z-[-1]"
     />
+    <slot name="patterns"></slot>
   </div>
 </template>
