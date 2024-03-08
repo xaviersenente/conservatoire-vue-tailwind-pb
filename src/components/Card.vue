@@ -2,22 +2,19 @@
 import DuotoneImg from '@/components/DuotoneImg.vue'
 import { formatDate } from '@/helper'
 import { RouterLink } from 'vue-router'
+import { pb } from '@/backend'
+import type { EventsResponse } from '@/pocketbase-types'
 
-const props = defineProps<{
-  id: number
-  title: string
-  date: string
-  excerpt: string
-  imgCardPath: string
-  imgAlt?: string
-}>()
+const props: EventsResponse = defineProps<EventsResponse>()
+
+const urlImgCard = props.imgUrl && pb.getFileUrl(props, props.imgUrl, { thumb: '1024x680' })
 </script>
 <template>
   <article
     class="group col-span-4 grid grid-cols-[24px_1fr] grid-rows-[200px_48px_1fr] lg:grid-cols-[2fr_11fr]"
   >
     <DuotoneImg
-      :imgPath="imgCardPath"
+      :imgPath="urlImgCard"
       :imgAlt="imgAlt"
       classPicture="col-start-1 row-start-1 col-span-2 row-span-2 group-hover:before:bg-black"
       classImg="group-hover:grayscale-0 group-hover:mix-blend-normal"
