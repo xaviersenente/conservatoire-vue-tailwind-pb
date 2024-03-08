@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import DuotoneImg from '@/components/DuotoneImg.vue'
 import { formatDate } from '@/helper'
+import { RouterLink } from 'vue-router'
 
 const props = defineProps<{
   id: number
@@ -22,12 +23,16 @@ const props = defineProps<{
       classImg="group-hover:grayscale-0 group-hover:mix-blend-normal"
     />
     <h3 class="z-[1] col-start-2 row-start-1 my-6 mr-4 self-end font-serif text-3xl text-white">
-      <a href="#">{{ title }}</a>
+      <RouterLink :to="{ name: '/events/[id]', params: { id } }">{{ title }}</RouterLink>
     </h3>
     <div class="z-[2] col-span-1 col-start-2 row-span-2 row-start-2 space-y-4 bg-white p-6">
       <p>{{ formatDate(date) }}</p>
       <p>{{ excerpt }}</p>
-      <a href="#" class="inline-block border-b-2 border-black uppercase">Plus d'info</a>
+      <RouterLink
+        :to="{ name: '/events/[id]', params: { id } }"
+        class="inline-block border-b-2 border-black uppercase"
+        >Plus d'info</RouterLink
+      >
     </div>
   </article>
 </template>
