@@ -8,6 +8,10 @@ import Card from '@/components/Card.vue'
 import { events } from '@/data'
 import Patterns from '@/components/icons/Patterns.vue'
 import { animateLines } from '@/helper'
+import { useHead } from '@unhead/vue'
+useHead({
+  title: 'Conservatoire Henri Dutilleux'
+})
 animateLines()
 </script>
 <template>

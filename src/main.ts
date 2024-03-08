@@ -4,6 +4,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router/auto'
 import V3ScrollLock from 'v3-scroll-lock'
+import { createHead } from '@unhead/vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -17,6 +18,7 @@ const router = createRouter({
 
 const app = createApp(App)
 
+app.use(createHead())
 app.use(router)
 app.use(V3ScrollLock, {})
 

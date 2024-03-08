@@ -5,10 +5,15 @@ import DuotoneImg from '@/components/DuotoneImg.vue'
 import { formatDate } from '@/helper'
 import Patterns from '@/components/icons/Patterns.vue'
 import { animateLines } from '@/helper'
-animateLines()
+import { useHead } from '@unhead/vue'
 
 const route = useRoute('/events/[[id]]')
 const event = events.find((event) => event.id === Number(route.params.id))
+
+useHead({
+  title: `${event?.title} | Conservatoire Henri Dutilleux`
+})
+animateLines()
 </script>
 <template>
   <div v-if="event">

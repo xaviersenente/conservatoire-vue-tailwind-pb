@@ -2,6 +2,10 @@
 import Hero from '@/components/Hero.vue'
 import Card from '@/components/Card.vue'
 import { events } from '@/data'
+import { useHead } from '@unhead/vue'
+useHead({
+  title: 'Agenda | Conservatoire Henri Dutilleux'
+})
 </script>
 <template>
   <Hero title="Agenda" imgPath="./img/orchestre.webp" imgAlt="Orchestre">

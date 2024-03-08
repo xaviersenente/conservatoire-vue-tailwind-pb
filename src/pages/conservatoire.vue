@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import Hero from '@/components/Hero.vue'
+import { useHead } from '@unhead/vue'
+useHead({
+  title: 'Le conservatoire | Conservatoire Henri Dutilleux'
+})
 </script>
 <template>
   <Hero title="Le conservatoire" imgPath="./img/crd-ext-02.webp" imgAlt="Conservatoire">
