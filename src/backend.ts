@@ -1,5 +1,6 @@
 import PocketBase from 'pocketbase'
 import { Collections, type EventsResponse } from './pocketbase-types'
+import { ClientResponseError } from 'pocketbase'
 
 export const pb = new PocketBase(import.meta.env.VITE_URL_POCKETBASE)
 
@@ -15,4 +16,17 @@ export async function getNextEvents() {
     filter: `date >= "${today} 00:00:00"`,
     sort: '+date'
   })
+}
+
+export async function oneEvent(id: string) {
+  let retValue = null
+  try {
+    retValue = await pb.collection(Collections.Events).getOne<EventsResponse>(id)
+  } catch (error) {
+    if (!(error instanceof ClientResponseError)) throw error
+    if (error.status !== 404) throw error
+    error.message = `L'événement ${id} n'existe pas : ${error.message}`
+    console.error(error)
+  }
+  return retValue
 }

@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { events } from '@/data'
+// import { events } from '@/data'
 import { useRoute } from 'vue-router/auto'
 import DuotoneImg from '@/components/DuotoneImg.vue'
 import { formatDate } from '@/helper'
 import Patterns from '@/components/icons/Patterns.vue'
 import { animateLines } from '@/helper'
 import { useHead } from '@unhead/vue'
+import { pb, oneEvent } from '@/backend'
 
 const route = useRoute('/events/[[id]]')
-const event = events.find((event) => event.id === Number(route.params.id))
+const event = await oneEvent(route.params.id)
+const urlImgCard = event?.imgUrl && pb.getFileUrl(event, event.imgUrl, { thumb: '1024x1024' })
 
 useHead({
   title: `${event?.title} | Conservatoire Henri Dutilleux`
@@ -19,7 +21,7 @@ animateLines()
   <div v-if="event">
     <div class="grille relative lg:pt-28">
       <DuotoneImg
-        :imgPath="event.imgPath"
+        :imgPath="urlImgCard"
         :imgAlt="event.imgAlt"
         classPicture="lg:col-span-5 -ml-6 -mr-6 lg:mx-0"
       />
