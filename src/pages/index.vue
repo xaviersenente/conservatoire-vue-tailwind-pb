@@ -89,4 +89,22 @@ import { events } from '@/data'
     />
     <Card v-for="event in events.slice(0, 3)" v-bind="event" :key="event.id" />
   </section>
+
+  <section
+    class="grille space-y-8 py-48 bg-black bg-[url('/img/background-inscription.webp')] bg-cover bg-center text-white lg:before:col-span-2 lg:before:col-start-1 lg:before:mt-12 lg:before:h-[1px] lg:before:bg-white"
+  >
+    <header class="space-y-6 lg:col-span-6 lg:col-start-3">
+      <h2 class="text-4xl lg:text-6xl">Inscriptions</h2>
+      <p class="text-xl leading-normal lg:text-3xl">
+        Vous êtes désireux d'entrer au conservatoire ? Vous trouverez ici toutes les informations
+        sur les les modalités d'inscriptions.
+      </p>
+    </header>
+    <Button
+      class="lg:col-span-4 lg:col-start-9 lg:self-start lg:justify-self-end"
+      url="/"
+      text="S'inscrire"
+      variant="outlined"
+    />
+  </section>
 </template>
