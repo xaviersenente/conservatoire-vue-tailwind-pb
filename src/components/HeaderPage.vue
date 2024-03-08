@@ -3,6 +3,7 @@ import LogoIcon from '@/components/icons/IconLogo.vue'
 import SearchIcon from '@/components/icons/IconSearch.vue'
 import { RouterLink } from 'vue-router'
 import { ref, computed, watch } from 'vue'
+import { useWindowScroll } from '@vueuse/core'
 
 // Créer une référence réactive pour suivre l'état du menu
 const activeMenu = ref(false)
@@ -10,10 +11,24 @@ const activeMenu = ref(false)
 function closeMenu() {
   activeMenu.value = false
 }
+
+const { y } = useWindowScroll()
+const underLimit = computed(() => y.value < 400)
+
+const dirTop = ref(true)
+watch(y, (y, oldY) => {
+  dirTop.value = y < oldY
+})
 </script>
 
 <template>
-  <header class="px-6 py-2 bg-white fixed z-10 w-full flex items-stretch justify-between lg:py-0">
+  <header
+    class="px-6 py-2 bg-white fixed z-10 w-full flex items-stretch justify-between transition-all duration-300 ease-in-out lg:py-0"
+    :class="{
+      '!-translate-y-full !bg-transparent': !dirTop,
+      '!bg-transparent lg:!bg-white': underLimit
+    }"
+  >
     <div class="flex items-center">
       <RouterLink to="/">
         <LogoIcon />
@@ -22,16 +37,23 @@ function closeMenu() {
 
     <div class="flex items-center gap-4 lg:flex-row-reverse">
       <button>
-        <SearchIcon />
+        <SearchIcon :class="{ 'stroke-white lg:stroke-black': underLimit }" />
       </button>
 
       <button
         class="relative z-10 flex h-5 w-8 flex-col justify-between *:h-[2px] *:w-full *:bg-black *:transition-all *:duration-300 *:ease lg:hidden"
         @click="activeMenu = !activeMenu"
       >
-        <div :class="{ 'translate-y-[9px] rotate-45 !bg-white': activeMenu }"></div>
-        <div :class="{ '!bg-white opacity-0': activeMenu }"></div>
-        <div :class="{ '-translate-y-[9px] -rotate-45 !bg-white': activeMenu }"></div>
+        <div
+          :class="{ 'translate-y-[9px] rotate-45 !bg-white': activeMenu, '!bg-white': underLimit }"
+        ></div>
+        <div :class="{ '!bg-white opacity-0': activeMenu, '!bg-white': underLimit }"></div>
+        <div
+          :class="{
+            '-translate-y-[9px] -rotate-45 !bg-white': activeMenu,
+            '!bg-white': underLimit
+          }"
+        ></div>
       </button>
 
       <nav
