@@ -8,9 +8,10 @@ import { animateLines } from '@/helper'
 import { useHead } from '@unhead/vue'
 import { pb, oneEvent } from '@/backend'
 
-const route = useRoute('/events/[[id]]')
+const route = useRoute('/events/[id]')
 const event = await oneEvent(route.params.id)
-const urlImgCard = event?.imgUrl && pb.getFileUrl(event, event.imgUrl, { thumb: '1024x1024' })
+const urlImgCard: string | undefined =
+  event?.imgUrl && pb.getFileUrl(event, event.imgUrl, { thumb: '1024x1024' })
 
 useHead({
   title: `${event?.title} | Conservatoire Henri Dutilleux`
@@ -21,6 +22,7 @@ animateLines()
   <div v-if="event">
     <div class="grille relative lg:pt-28">
       <DuotoneImg
+        v-if="urlImgCard"
         :imgPath="urlImgCard"
         :imgAlt="event.imgAlt"
         classPicture="lg:col-span-5 -ml-6 -mr-6 lg:mx-0"
