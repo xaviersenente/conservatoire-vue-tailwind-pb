@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router/auto'
 import DuotoneImg from '@/components/DuotoneImg.vue'
 import { formatDate } from '@/helper'
 
-const route = useRoute('/events/[[id]]')
+const route = useRoute('/events/[id]')
 const event = events.find((event) => event.id === Number(route.params.id))
 </script>
 <template>
