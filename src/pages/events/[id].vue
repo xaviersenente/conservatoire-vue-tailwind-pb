@@ -7,7 +7,7 @@ import Patterns from '@/components/icons/Patterns.vue'
 import { animateLines } from '@/helper'
 animateLines()
 
-const route = useRoute('/events/[[id]]')
+const route = useRoute('/events/[id]')
 const event = events.find((event) => event.id === Number(route.params.id))
 </script>
 <template>
