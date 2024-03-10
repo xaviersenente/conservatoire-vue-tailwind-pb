@@ -36,16 +36,18 @@ animateLines()
         <ul class="grid grid-cols-3 gap-12">
           <li>
             <a class="flex flex-col items-center gap-4 lg:flex-row" href="#"
-              ><IconMusic /> Musique</a
+              ><IconMusic aria-hidden="true" /> Musique</a
             >
           </li>
           <li>
             <a class="flex flex-col items-center gap-4 lg:flex-row" href="#"
-              ><IconTheater /> Théâtre</a
+              ><IconTheater aria-hidden="true" /> Théâtre</a
             >
           </li>
           <li>
-            <a class="flex flex-col items-center gap-4 lg:flex-row" href="#"><IconDanse /> Danse</a>
+            <a class="flex flex-col items-center gap-4 lg:flex-row" href="#"
+              ><IconDanse aria-hidden="true" /> Danse</a
+            >
           </li>
         </ul>
       </nav>

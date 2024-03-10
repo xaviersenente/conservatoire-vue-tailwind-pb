@@ -8,7 +8,7 @@ import LogoFooterIcon from '@/components/icons/IconLogoFooter.vue'
 import { RouterLink } from 'vue-router'
 </script>
 <template>
-  <footer class="grille flex-shrink-0 space-y-6 bg-gray-900 py-16 px-6 text-white lg:space-y-0">
+  <footer class="grille space-y-6 bg-gray-900 py-16 px-6 text-white lg:space-y-0">
     <LogoFooterIcon aria-hidden="true" />
     <nav class="space-y-3 lg:col-span-3 lg:col-start-7">
       <h3 class="font-bold font-sans uppercase">Menu</h3>
