@@ -30,19 +30,22 @@ watch(y, (y, oldY) => {
     }"
   >
     <div class="flex items-center">
-      <RouterLink to="/">
-        <LogoIcon />
+      <RouterLink to="/" aria-label="Accueil">
+        <LogoIcon aria-hidden="true" />
       </RouterLink>
     </div>
 
     <div class="flex items-center gap-4 lg:flex-row-reverse">
-      <button>
-        <SearchIcon :class="{ 'stroke-white lg:stroke-black': underLimit }" />
+      <button aria-label="Recherche">
+        <SearchIcon :class="{ 'stroke-white lg:stroke-black': underLimit }" aria-hidden="true" />
       </button>
 
       <button
         class="relative z-10 flex h-5 w-8 flex-col justify-between *:h-[2px] *:w-full *:bg-black *:transition-all *:duration-300 *:ease lg:hidden"
         @click="activeMenu = !activeMenu"
+        aria-label="Menu"
+        :aria-expanded="activeMenu ? 'true' : 'false'"
+        aria-controls="menu-principal"
       >
         <div
           :class="{ 'translate-y-[9px] rotate-45 !bg-white': activeMenu, '!bg-white': underLimit }"
@@ -57,6 +60,7 @@ watch(y, (y, oldY) => {
       </button>
 
       <nav
+        id="menu-principal"
         class="invisible fixed inset-0 bg-indigo text-2xl text-white opacity-0 transition-all duration-300 ease-in-out lg:visible lg:relative lg:flex lg:items-center lg:bg-transparent lg:text-sm lg:font-bold lg:uppercase lg:tracking-wide lg:text-black lg:opacity-100"
         :class="{ '!visible opacity-100': activeMenu }"
         v-scroll-lock="activeMenu"

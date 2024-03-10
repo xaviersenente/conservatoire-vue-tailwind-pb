@@ -13,7 +13,14 @@ import { getNextEvents } from '@/backend'
 
 const events = await getNextEvents()
 useHead({
-  title: 'Conservatoire Henri Dutilleux'
+  title: 'Conservatoire Henri Dutilleux',
+  meta: [
+    {
+      name: 'description',
+      content:
+        'Découvrez le Conservatoire, ses enseignements, ses équipes dans un nouveau lieu dédié à la culture artistique.'
+    }
+  ]
 })
 animateLines()
 </script>
@@ -70,19 +77,19 @@ animateLines()
 
     <ul class="grid grid-cols-2 gap-12 lg:col-span-4 lg:col-start-9 lg:row-start-2">
       <li>
-        <span class="block text-4xl text-pink lg:text-6xl">9</span>
+        <span class="block text-4xl text-[#e86f59] lg:text-6xl">9</span>
         <span>sites</span>
       </li>
       <li>
-        <span class="block text-4xl text-pink lg:text-6xl">84</span>
+        <span class="block text-4xl text-[#e86f59] lg:text-6xl">84</span>
         <span>enseignants</span>
       </li>
       <li>
-        <span class="block text-4xl text-pink lg:text-6xl">1500</span>
+        <span class="block text-4xl text-[#e86f59] lg:text-6xl">1500</span>
         <span>élèves</span>
       </li>
       <li>
-        <span class="block text-4xl text-pink lg:text-6xl">50</span>
+        <span class="block text-4xl text-[#e86f59] lg:text-6xl">50</span>
         <span>disciplines</span>
       </li>
     </ul>

@@ -8,10 +8,10 @@ import LogoFooterIcon from '@/components/icons/IconLogoFooter.vue'
 import { RouterLink } from 'vue-router'
 </script>
 <template>
-  <footer class="grille space-y-6 bg-gray-900 py-16 px-6 text-white lg:space-y-0">
-    <LogoFooterIcon />
+  <footer class="grille flex-shrink-0 space-y-6 bg-gray-900 py-16 px-6 text-white lg:space-y-0">
+    <LogoFooterIcon aria-hidden="true" />
     <nav class="space-y-3 lg:col-span-3 lg:col-start-7">
-      <h4 class="font-bold uppercase">Menu</h4>
+      <h3 class="font-bold font-sans uppercase">Menu</h3>
       <ul>
         <li><RouterLink to="/events">Agenda</RouterLink></li>
         <li><RouterLink to="/contact">Contact et accès</RouterLink></li>
@@ -19,7 +19,7 @@ import { RouterLink } from 'vue-router'
     </nav>
 
     <div class="space-y-3 lg:col-span-3 lg:col-start-10">
-      <h4 class="font-bold uppercase">Contact</h4>
+      <h3 class="font-bold font-sans uppercase">Contact</h3>
       <address>
         1 rue Paul Koepfler<br />90000 Belfort<br />
         <a href="tel:0384542727">03 84 54 27 27</a><br />
@@ -27,22 +27,26 @@ import { RouterLink } from 'vue-router'
       </address>
     </div>
 
-    <div class="lg:col-span-3 lg:col-start-7"><LogoGBIcon /></div>
+    <div class="lg:col-span-3 lg:col-start-7"><LogoGBIcon aria-hidden="true" /></div>
 
     <div class="space-y-3 lg:col-span-3 lg:col-start-10">
-      <h4 class="font-bold uppercase">Nous suivre</h4>
+      <h3 class="font-bold font-sans uppercase">Nous suivre</h3>
       <ul class="flex gap-4">
         <li>
-          <a href="https://facebook.com" aria-label="facebook"><FacebookIcon /></a>
+          <a href="https://facebook.com" aria-label="facebook"
+            ><FacebookIcon aria-hidden="true"
+          /></a>
         </li>
         <li>
-          <a href="https://instagram.com" aria-label="instagram"><InstagramIcon /></a>
+          <a href="https://instagram.com" aria-label="instagram"
+            ><InstagramIcon aria-hidden="true"
+          /></a>
         </li>
         <li>
-          <a href="https://twitter.com" aria-label="twitter"><TwitterIcon /></a>
+          <a href="https://twitter.com" aria-label="twitter"><TwitterIcon aria-hidden="true" /></a>
         </li>
         <li>
-          <a href="https://youtube.com" aria-label="youtube"><YoutubeIcon /></a>
+          <a href="https://youtube.com" aria-label="youtube"><YoutubeIcon aria-hidden="true" /></a>
         </li>
       </ul>
     </div>
